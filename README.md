@@ -1,2 +1,2 @@
-# Calculator-usin-HTML-CSS-JavaScript
+# Calculator-using-HTML-CSS-JavaScript
 JavaScript
