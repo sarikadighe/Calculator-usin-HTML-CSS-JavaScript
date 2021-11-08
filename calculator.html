@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <script src="https://kit.fontawesome.com/29d5aa5e32.js" crossorigin="anonymous"></script>
+    <style>
+        .container {
+            border: rgb(61, 28, 92) 3px solid;
+            border-radius: 20px;
+            height: 395px;
+            width: 200px;
+            display: block;
+            margin: auto;
+            margin-top: 100px;
+            background-color: rgb(110, 110, 173);
+
+        }
+
+        .heading h1 {
+            color: rgb(4, 4, 85);
+            align-items: center;
+            margin-left: 20px;
+        }
+
+        .screen input {
+            width: 190px;
+            height: 30px;
+            border-radius: 10px;
+        }
+
+        .buttons {
+            margin: 30px;
+            margin-top: 4px;
+            margin-left: 8px;
+
+        }
+
+        button {
+            height: 42px;
+            width: 42px;
+            padding: 15px;
+            border-radius: 10px;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-size: 15px;
+            background-color: rgb(201, 201, 228);
+        }
+
+        button:hover {
+            transition: ease-in-out 0.1s;
+            background-color: rgb(209, 151, 247);
+            box-shadow: rgb(43, 8, 77) 3px 3px;
+        }
+
+        table {
+            margin: auto;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="heading">
+            <h1>Calculator</h1>
+        </div>
+
+        <div class="screen">
+            <input type="text" id="inText">
+        </div>
+
+        <div class="buttons">
+            <table>
+                <tr>
+                    <td> <button>1</button></td>
+                    <td> <button>2</button></td>
+                    <td> <button>3</button></td>
+                    <td> <button>+</button></td>
+                </tr>
+                <tr>
+                    <td> <button>4</button></td>
+                    <td> <button>5</button></td>
+                    <td> <button>6</button></td>
+                    <td> <button>-</button></td>
+                </tr>
+                <tr>
+                    <td> <button>7</button></td>
+                    <td> <button>8</button></td>
+                    <td> <button>9</button></td>
+                    <td> <button>/</button></td>
+                </tr>
+                <tr>
+                    <td> <button>10</button></td>
+                    <td> <button>0</button></td>
+                    <td> <button>X</button></td>
+                    <td> <button>=</button></td>
+                </tr>
+               
+                <tr>
+                    <td> <button>(</button></td>
+                    <td> <button>)</button></td>
+                    <td> <button>C</button></td>
+                    <td> <button><i class="fas fa-backspace"></i></button></td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    <script language="javascript">
+        let screen = document.getElementById('inText');
+
+        let buttons = document.querySelectorAll('button')
+        
+
+        var screenValue = "";
+
+        for (item of buttons) {
+            item.addEventListener('click', (e) => {
+                var buttonText = e.target.innerText;
+                console.log(buttonText);
+
+                if (buttonText == "X") {
+                    buttonText = '*';
+                    screenValue += buttonText;
+                    screen.value = screenValue;
+                }
+                else {
+                    if (buttonText == 'C') {
+                        buttonText = "";
+                        screenValue = buttonText;
+                        screen.value = screenValue;
+                    }
+                    else
+                     {
+                        if (buttonText=='B') {
+                           screen.innerText=screen.innerText.slice(0,-1);
+                           
+                        }
+                        else {
+                            if(buttonText=='=')
+                            {
+                               screen.value=eval(screenValue);
+                            }
+                            else
+                            {
+                                screenValue+=buttonText;
+                                screen.value=screenValue;
+                            }
+                           
+                           
+                        }
+                       
+
+                    }
+                }
+            });
+        }
+
+
+
+    </script>
+</body>
+
+</html>
